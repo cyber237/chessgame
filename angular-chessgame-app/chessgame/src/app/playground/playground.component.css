@@ -1,0 +1,164 @@
+.container {
+    background-image: url("/assets/images/squares.png");
+    height: 100vh;
+    width: 100%;
+    overflow: scroll;
+
+}
+.playground-head{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin-bottom: 10px;
+}
+.playground-head>div{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}
+
+.playground-head h1{
+    font-size: 50px;
+}
+
+.playground-head .code-container{
+    width: 280px;
+    margin: 20px;
+
+}
+
+.playground-head .code-box{
+    background-color: rgb(255, 255, 255);
+    height: 60px;
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 40% 40% 20%;
+    align-items: center;
+}
+.playground-head .code-container span{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size:medium;
+}
+.playground-head .code-box span{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    padding: 5px;
+    width: 100%;
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.playground-head .code-box span.code{
+    font-size: x-large;
+    font-weight: 600;
+    background-color: rgb(230, 230, 230);
+}
+.playground-head .code-box span.description{
+    background-color: rgb(255, 255, 255);
+}
+
+.playground-head .game-controls{
+    margin: 20px;
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.playground-head .game-controls button{
+    margin: 5px;
+}
+
+.playground-head .connected-users{
+    margin: 20px;
+    margin-top: 40px;
+}
+
+.indicator{
+    width: 10px;
+    height: 10px;
+    background-image: radial-gradient(rgb(24, 141, 24),rgb(30, 197, 30));
+    border-radius: 5px;
+    display: inline-block;
+    margin-right: 5px;
+    margin-left: 10px;
+}
+
+.playground-head .connected-users span{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+}
+
+.playground-body{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    overflow: scroll;
+
+}
+
+
+.block{
+    background-color: #414141;
+    height: 300px;
+    max-width: 600px;
+    min-width: 250px;
+    width: 60%;
+    height: 300px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.block>h1{
+    color: rgb(243, 243, 243);
+    margin-top: 50px;
+}
+
+.block a{
+    color:rgb(163, 192, 218);
+    padding-bottom: 20px;
+}
+.block span{
+    color:white;
+    padding-bottom: 20px;
+}
+
+.c-btn{
+    height: fit-content;
+    width: fit-content;
+
+    margin: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: medium;
+    font-family: 'Courier New', Courier, monospace;
+}
+.c-btn.quit{
+    background-color: red;
+    color: white;
+
+}
+.c-btn.reset{
+    background-color: green;
+    color: white;
+
+}
+.player-info{
+    font-size: x-large;
+    margin: 10px;
+}

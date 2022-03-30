@@ -1,0 +1,53 @@
+<div *ngIf="router.url == '/playground'" class="container">
+    <div class="playground-head">
+        <h1>Chess Online game</h1>
+        <div>
+            <div class="code-container">
+            
+                <div class="code-box" [class.mat-elevation-z4]="true">
+                    <span class="description">Game code: </span>
+                    <span matTooltip="{{game_code}}" class="code">{{truncate_game_code(game_code)}}</span>
+                    <button mat-icon-button style="margin:10px" (click)="copy_game_code()"><mat-icon>content_copy</mat-icon></button>
+                </div>
+                <span>share code with other player so they can join</span>
+                
+            </div>
+
+            <div class="connected-users">
+                <div class="indicator"></div> 
+                <span><strong>[{{connected}}]</strong> users connected</span>
+                
+                <button mat-button (click)="display_players()"><mat-icon>visibility</mat-icon></button>
+            </div>
+            <div class="game-controls">
+                <button mat-raised-button class="c-btn reset" (click)="resetBoard()"><mat-icon>restart_alt</mat-icon>Reset game   </button>
+                <button mat-raised-button class="c-btn logut" (click)="disconnect()"><mat-icon>logout</mat-icon>Disconnect   </button>
+            </div>
+
+        </div>
+
+
+        
+    </div>
+    <div class="playground-body">
+        <div class="board-container">
+            <div *ngIf="players[0] && players[0].initiator" class="player-info">
+                <span >Player {{players[0].username}} <span *ngIf="players[0].username==me">(Me)</span> <div *ngIf="players[0].connected" class="indicator"></div></span>
+            </div>
+            <div *ngIf="players[1] && players[1].initiator" class="player-info">
+                <span>Player {{players[1].username}} <span *ngIf="players[1].username==me">(Me)</span> <div *ngIf="players[1].connected" class="indicator"></div></span>
+            </div>
+            <ngx-chess-board #board [size]="board_size" (moveChange)="moveCallback($event)" [lightDisabled]="lightDisabled" [darkDisabled]="darkDisabled"></ngx-chess-board>
+            <div *ngIf="players[0] && !players[0].initiator" class="player-info">
+                <span >Player {{players[0].username}} <span *ngIf="players[0].username==me">(Me)</span> <div *ngIf="players[0].connected" class="indicator"></div></span>
+            </div>
+            <div *ngIf="players[1] && !players[1].initiator" class="player-info">
+                <span >Player {{players[1].username}} <span *ngIf="players[1].username==me">(Me)</span> <div *ngIf="players[1].connected" class="indicator"></div></span>
+            </div>
+        </div>
+        <app-message-box #messagebox [user_id]="me" [players]="players" [messages]="messages" ></app-message-box>
+
+    </div>
+
+    
+</div>

@@ -1,0 +1,31 @@
+<div [class.mat-elevation-z4]="true" class="msg-container">
+    <div [class.mat-elevation-z2]="true"  class="msg-header">
+        <span class="title">Chats <mat-icon>chat</mat-icon> </span>
+        <div class="chat-participants">
+            <div>
+                <span *ngFor="let player of players" class="player-data">player {{player.username}}|</span>
+            </div>
+            <div class="indicator"></div>
+        </div>
+    </div>
+
+
+<div #msgcontainer class="msg-box">
+    <div *ngFor="let message of messages" [ngClass]="['msg']" [class.user]="message.author_id===user_id" [class.system]="message.author_id==='system'">
+        <span *ngIf="message.author_id!=='system'" class="msg-author">Player {{message.author_id===user_id?"Me":message.author_id}}</span>
+        <p class="msg-content">{{message.content}}</p>
+        <span *ngIf="message.author_id!=='system'" class="msg-datetime">{{ (message.datetime|amFromUnix) | amTimeAgo }}</span>
+    </div>
+
+</div>
+<div class="input-box" [class.mat-elevation-z4]="true">
+    <mat-form-field #messageInput appearance="fill" class="input-field" (keydown)="checkKey($event)">
+        <mat-label>Input Message Here!</mat-label>
+        <textarea matInput></textarea>
+    </mat-form-field>
+    <button mat-icon-button style="margin-top:10px" (click)="sendMessage()">
+        <mat-icon>send</mat-icon>
+    </button>
+</div>
+
+</div>

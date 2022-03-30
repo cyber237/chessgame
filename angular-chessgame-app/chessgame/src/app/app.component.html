@@ -1,0 +1,11 @@
+
+
+<div *ngIf="router.url == '/'" class="container">
+  <div class="block">
+    <h1> Welcome to Chess Game v1.0</h1>
+  <button mat-raised-button class="c-btn start" (click)="openDialog()"> Start new Game</button>
+  <button mat-raised-button class="c-btn" [routerLink]="'/join'" routerLinkActive="active"> Join Game</button>
+  </div>
+</div>
+<router-outlet></router-outlet>
+

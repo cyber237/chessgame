@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Hi 👋</h1>
+<div mat-dialog-content>
+  <p>Input username to proceed</p>
+  <mat-form-field #username appearance="fill">
+    <mat-label >Username</mat-label>
+    <input matInput [formControl]="username_validator" required>
+    <mat-error *ngIf="username_validator.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]>Cancel</button>
+  <button mat-button (click)="start_game()">Proceed</button>
+</div>

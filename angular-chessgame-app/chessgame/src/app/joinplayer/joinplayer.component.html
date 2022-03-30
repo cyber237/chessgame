@@ -1,0 +1,17 @@
+<div *ngIf="router.url=='/join'" class="container">
+    <div class="block">
+      <h1>Insert player code</h1>
+      <span>Insert code shared to you or <a class="" (click)="openDialog()" >start new game</a></span>
+      <mat-form-field #name appearance="fill" [style.width.px]=250>
+        <mat-label  [style.color]="'antiquewhite'">Your name</mat-label>
+        <input matInput>
+      </mat-form-field>
+      <mat-form-field #code appearance="fill" [style.width.px]=250>
+        <mat-label [style.color]="'antiquewhite'">Game code</mat-label>
+        <input matInput>
+      </mat-form-field>
+      <mat-error #error *ngIf="error">{{error_description}}</mat-error>
+      <button mat-raised-button [style.width.px]=250 class="c-btn join" (click)="join_game(name._control.value,code._control.value)"> Join Game</button>
+    </div>
+</div>
+<router-outlet></router-outlet>
